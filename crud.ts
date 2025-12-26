@@ -29,21 +29,44 @@ async function run(){
 //    })
 
 //retrive all user 
-  const users = await prisma.user.findMany({
+//   const users = await prisma.user.findMany({
     // include: {
     //     post: true,
     //     profile: true
     // }
-    select: {
-        id: true,
-        name: true,
-        email: true,
-        post: true,
-        profile: true
-    }
-  });
-  console.dir(users,{depth: Infinity})
+//     select: {
+//         id: true,
+//         name: true,
+//         email: true,
+//         post: true,
+//         profile: true
+//     }
+//   });
+  //console.dir(users,{depth: Infinity})
   //console.log(users);
+
+  //update user data
+//   const updateUser = await prisma.profile.update({
+//     where: {
+//         userId:1
+//     },
+//     data: {
+//         bio: "The Cutest and Whitest cat",
+//     },
+//     select : {
+//         id: true,
+//         bio: true,
+//         user: true
+//     }
+//   })
+//   console.log("Updated user:", updateUser);
+  const deleteUser = await prisma.user.delete({
+    where: {
+        id: 2
+    }
+  })
+
+  console.log(deleteUser);
 
 }
 
