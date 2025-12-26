@@ -27,17 +27,28 @@ async function run(){
 //         userId: 1
 //     }
 //    })
-//    console.log(createdProfile);//{ id: 1, bio: 'The cutest billi', dateOfBirth: null, userId: 1 }
+
+//retrive all user 
+  const users = await prisma.user.findMany({
+    // include: {
+    //     post: true,
+    //     profile: true
+    // }
+    select: {
+        id: true,
+        name: true,
+        email: true,
+        post: true,
+        profile: true
+    }
+  });
+  console.dir(users,{depth: Infinity})
+  //console.log(users);
+
 }
 
     
 
 run()
-// Created User {
-//   id: 2,
-//   name: 'Miki The Cute Billi',
-//   email: 'miki@gmail.com',
-//   role: 'USER'
-// }
 
 
